@@ -1,0 +1,63 @@
+input {
+  border: none;
+  box-shadow: 0px 0px 10px rgba(67, 65, 65, .4);
+  font-size: 1.2rem;
+  outline: none;
+  padding: 5px;
+  margin: 5px;
+  border-radius: 10px;
+}
+
+input:focus-within {
+  border: 2px solid aqua;
+}
+
+table {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td,
+th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+tr:hover {
+  background-color: #ddd;
+}
+
+th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04AA6D;
+  color: white;
+}
+
+button {
+  border: none;
+  box-shadow: 0px 0px 10px rgba(67, 65, 65, .4);
+  font-size: 1.2rem;
+  padding: 5px;
+  margin: 5px;
+  border-radius: 5px;
+}
+
+button:hover {
+  border: 2px solid yellow;
+}
+
+
+
+.App {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
