@@ -9,7 +9,6 @@ function App() {
   const currentdate = new Date(); 
   
   function addData(){
-    // const currentdate = new Date(); 
     const checkIn = currentdate.getHours() + ":"  
                 + currentdate.getMinutes() + ":" 
                 + currentdate.getSeconds();
@@ -22,13 +21,13 @@ function App() {
   }
 
 
-  function checkOut(rollNumber){
+  function checkOut(student){
     const checkOut = currentdate.getHours() + ":"  
                 + currentdate.getMinutes() + ":" 
                 + currentdate.getSeconds();
-    const student = studentData.find((student) => (student.rollNumber === rollNumber))
-    student.checkOut = checkOut;
-    console.log(studentData);
+    const studentId = {"rollNumber": student.rollNumber, "name": student.name, "checkIn": student.checkIn , "checkOut": checkOut};
+    const newStudentData = studentData.filter((newStudent) => newStudent.rollNumber !== student.rollNumber);
+    setStudentData([...newStudentData, studentId])
   }
 
   return (
@@ -49,25 +48,25 @@ function App() {
           </thead>
           <tbody>
           {studentData.map((student)=> {
-            // if(student.checkOut !== "") {
-            //    return (            
-            //     <tr key={student.rollNumber}>
-            //       <td>{student.rollNumber}</td>
-            //       <td>{student.name}</td>
-            //       <td>{student.checkIn}</td>
-            //       <td>{student.checkOut}</td>                  
-            //     </tr>
-            // );
-            // }else{
+            if(student.checkOut !== "") {
+               return (            
+                <tr key={student.rollNumber}>
+                  <td>{student.rollNumber}</td>
+                  <td>{student.name}</td>
+                  <td>{student.checkIn}</td>
+                  <td>{student.checkOut}</td>                  
+                </tr>
+            );
+            }else{
             return (            
                 <tr key={student.rollNumber}>
                   <td>{student.rollNumber}</td>
                   <td>{student.name}</td>
                   <td>{student.checkIn}</td>
-                  <td><button onClick={() => (checkOut(student.rollNumber))}>Check Out</button></td>                  
+                  <td><button onClick={() => (checkOut(student))}>Check Out</button></td>                  
                 </tr>
             );
-          // }
+          }
           })}
           </tbody>
         </table>
